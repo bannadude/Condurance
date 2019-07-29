@@ -18,7 +18,7 @@ namespace TDD
             stack_items.Push(item);
         }
 
-        public object pop() 
+        public object pop()
         {
             try
             {
