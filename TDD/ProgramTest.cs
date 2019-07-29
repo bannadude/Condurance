@@ -8,12 +8,29 @@ using System.Threading.Tasks;
 namespace TDD
 {
     [TestFixture]
-    class ProgramTest
+    class MyStackShould
     {
+        MyStack stack;
         [Test]
-        public void SimpleTest()
+        public void throw_exception_for_empty_pop()
         {
-            Assert.That(false, "Pass");
+            stack = new MyStack();
+            
+            var ex = Assert.Throws<Exception>(() => stack.pop());
+            Assert.That(ex.Message, Is.EqualTo("my exception"));
         }
+
+        [Test]
+        public void pop_last_item()
+        {
+            stack = new MyStack();
+
+            stack.push("1");
+            stack.push("2");
+            stack.push("3");
+
+            Assert.AreEqual(stack.pop(), "3");
+        }
+
     }
 }
